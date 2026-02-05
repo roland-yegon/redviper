@@ -2,12 +2,13 @@ from datetime import datetime
 import os
 
 def generate():
+    # Ensure reports directory exists
     os.makedirs("reports", exist_ok=True)
 
     report_path = f"reports/redviper_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
 
     try:
-        with open("redviper.log", "r") as log_file:
+        with open("logs/redviper.log", "r") as log_file:
             logs = log_file.read()
     except FileNotFoundError:
         logs = "No logs found."
